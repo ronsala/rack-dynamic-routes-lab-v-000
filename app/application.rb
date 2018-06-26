@@ -14,7 +14,7 @@ class Application
       item_name = req.path.split("/items/").last
       # if @@items.include?(item)
       if @@items.find{|i| i.name == item_name}
-        req_item = @@items.find{|i| i.name == item}
+        req_item = @@items.find{|i| i.name == item_name}
 
 
         resp.write "#{req_item.price}"
