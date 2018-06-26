@@ -12,7 +12,9 @@ class Application
     if req.path.match(/items/)
       # item = req.params["item"]
       item = req.path.split("/items/").last
-      if @@items.include?(item)
+      # if @@items.include?(item)
+      if @@items.find{|i| i.name == item}
+        req_item = @@items.find{|i| i.name == item}
 
 
         resp.write "#{item.price}"
