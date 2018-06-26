@@ -11,8 +11,9 @@ class Application
     # if req.path=="/items"
     if req.path.match(/items/)
       item = req.params["item"]
+              binding.pry
       if @@items.include?(item)
-        binding.pry
+
 
         resp.write "#{item.price}"
         resp.status = 200
