@@ -9,7 +9,7 @@ class Application
     # if req.path == '/items/'
     if req.path.include?("items")
       item = req.params["item"]
-              binding.pry
+              # binding.pry
       if @@items.include?(item)
 
         resp.write "#{item.price}"
