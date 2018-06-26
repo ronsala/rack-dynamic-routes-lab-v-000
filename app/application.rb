@@ -5,7 +5,8 @@ class Application
     req = Rack::Request.new(env)
 
     # if req.path.match(/items/<ITEM NAME>)
-    if req.path == '/items/<ITEM NAME>'
+    # if req.path == '/items/<ITEM NAME>'
+    if req.path == '/items/'
       item = req.params["item"]
               binding.pry
       if @@items.include?(item)
