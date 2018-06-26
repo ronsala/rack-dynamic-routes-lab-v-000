@@ -7,7 +7,7 @@ class Application
     # if req.path.match(/items/<ITEM NAME>)
     # if req.path == '/items/<ITEM NAME>'
     # if req.path == '/items/'
-    if req.path.include?()/items/)
+    if req.path.include?(/items/)
       item = req.params["item"]
               binding.pry
       if @@items.include?(item)
