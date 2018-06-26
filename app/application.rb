@@ -4,12 +4,16 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    if req.path=="/items"
-      if @@items.include? item
-        item = req.params["item"]
-        resp.write "#{item.price}"
+    if req.path.match(/items/)
+      # item = req.params["item"]
+      item_name = req.path.split("/items/").last
+      # if @@items.include?(item)
+      if @@items.find{|i| i.name == item_name}
+        req_item = @@items.find{|i| i.name == item_name}
+        resp.write "#{req_item.price}"
       else
         resp.write "Item not found"
+        resp.status = 400
       end
     else
       resp.write "Route not found"
