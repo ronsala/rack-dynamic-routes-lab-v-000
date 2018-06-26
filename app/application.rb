@@ -11,13 +11,13 @@ class Application
     # if req.path=="/items"
     if req.path.match(/items/)
       # item = req.params["item"]
-      item = req.path.split("/items/").last
+      item_name = req.path.split("/items/").last
       # if @@items.include?(item)
-      if @@items.find{|i| i.name == item}
+      if @@items.find{|i| i.name == item_name}
         req_item = @@items.find{|i| i.name == item}
 
 
-        resp.write "#{item.price}"
+        resp.write "#{req_item.price}"
         resp.status = 200
       else
         resp.write "Item not found"
