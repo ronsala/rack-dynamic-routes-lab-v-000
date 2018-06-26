@@ -11,7 +11,7 @@ class Application
     # if req.path=="/items"
     if req.path.match(/items/)
       item = req.params["item"]
-              binding.pry
+    puts item
       if @@items.include?(item)
 
 
