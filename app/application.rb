@@ -10,8 +10,8 @@ class Application
     # if req.path.include?("items")
     # if req.path=="/items"
     if req.path.match(/items/)
-      item = req.params["item"]
-    puts item
+      # item = req.params["item"]
+      item = req.path.split("/items/").last
       if @@items.include?(item)
 
 
